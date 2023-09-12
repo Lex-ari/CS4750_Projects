@@ -17,9 +17,15 @@ class QuizViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel(
         Question(R.string.question_americas, true),
         Question(R.string.question_asia, true))
 
-    var isCheater: Boolean
-        get() = savedStateHandle.get(IS_CHEATER_KEY) ?: false
-        set(value) = savedStateHandle.set(IS_CHEATER_KEY, value)
+//    var isCheater: Boolean
+//        get() = savedStateHandle.get(IS_CHEATER_KEY) ?: false
+//        set(value) = savedStateHandle.set(IS_CHEATER_KEY, value)
+
+    public var isCheater: Boolean
+        get() = questionBank[currentIndex].cheated
+        set(value) {
+            questionBank[currentIndex].cheated = value
+        }
 
     private var currentIndex: Int
         get() = savedStateHandle.get(CURRENT_INDEX_KEY) ?: 0
