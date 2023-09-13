@@ -1,4 +1,11 @@
 package com.bignerdranch.android.geoquiz
+/*
+
+    Written by Alex Mariano
+    Dr. Dave Johannsen
+    CS 4750 Mobile Application Development
+
+ */
 
 import android.util.Log
 import androidx.lifecycle.SavedStateHandle
@@ -10,12 +17,12 @@ const val IS_CHEATER_KEY = "IS_CHEATER_KEY"
 
 class QuizViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() {
     private val questionBank = listOf(
-        Question(R.string.question_australia, true),
-        Question(R.string.question_oceans, true),
-        Question(R.string.question_mideast, false),
-        Question(R.string.question_africa, false),
-        Question(R.string.question_americas, true),
-        Question(R.string.question_asia, true))
+        Question(R.string.question_canberra, false),
+        Question(R.string.question_valkyrie, true),
+        Question(R.string.question_buran, false),
+        Question(R.string.question_blackbird, true),
+        Question(R.string.question_lagrange, true),
+        Question(R.string.question_laika, true))
 
 //    var isCheater: Boolean
 //        get() = savedStateHandle.get(IS_CHEATER_KEY) ?: false

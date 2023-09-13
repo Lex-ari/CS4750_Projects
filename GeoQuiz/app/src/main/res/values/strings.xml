@@ -1,18 +1,26 @@
 <resources>
+    <!--                                            -->
+    <!--    Written by Alex Mariano                 -->
+    <!--    Dr. Dave Johannsen                      -->
+    <!--    CS 4750 Mobile Application Development  -->
+    <!--                                            -->
+
+
     <string name="app_name">GeoQuiz</string>
 
 
     <!-- Questions -->
-    <string name="question_australia">Canberra is the capital of Australia.</string>
-    <string name="question_oceans">The Pacific Ocean is larger than
-        the Atlantic Ocean.</string>
-    <string name="question_mideast">The Suez Canal connects the Red Sea
-        and the Indian Ocean.</string>
-    <string name="question_africa">The source of the Nile River is in Egypt.</string>
-    <string name="question_americas">The Amazon River is the longest river
-        in the Americas.</string>
-    <string name="question_asia">Lake Baikal is the world\'s oldest and deepest
-        freshwater lake.</string>
+    <string name="question_canberra">The English Electric Canberra only served as a
+        British twin-engine jet-powered bomber aircraft for the Royal Air Force.</string>
+    <string name="question_valkyrie">The top speed of the North American XB-70 Valkyrie is
+    Mach 3.</string>
+    <string name="question_buran">The United States is the only nation to develop space shuttles
+    featuring a winged design.</string>
+    <string name="question_blackbird">The SR-71 Blackbird was never shot down during its
+        service life.</string>
+    <string name="question_lagrange">The James Webb Space Telescope (JWST) orbits
+    Lagrange Point L2 around the Sun.</string>
+    <string name="question_laika">The first space dog\'s name is Laika.</string>
 
     <!-- Interactables -->
     <string name="true_button">True</string>
