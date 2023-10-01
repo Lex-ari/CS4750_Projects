@@ -2,7 +2,6 @@ package com.bignerdranch.android.criminalintent
 
 import android.content.Context
 import androidx.room.Room
-import androidx.room.RoomDatabase
 import com.bignerdranch.android.criminalintent.database.CrimeDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.GlobalScope
@@ -20,7 +19,7 @@ class CrimeRepository private constructor(
         context.applicationContext,
         CrimeDatabase::class.java,
         DATABASE_NAME
-    ).createFromAsset(DATABASE_NAME).build()
+    ).build()
 
     fun getCrimes() : Flow<List<Crime>> = database.crimeDao().getCrimes()
     suspend fun getCrime(id: UUID) : Crime = database.crimeDao().getCrime(id)
@@ -29,6 +28,10 @@ class CrimeRepository private constructor(
         coroutineScope.launch {
             database.crimeDao().updateCrime(crime)
         }
+    }
+
+    suspend fun addCrime(crime: Crime) {
+        database.crimeDao().addCrime(crime)
     }
 
     companion object {
