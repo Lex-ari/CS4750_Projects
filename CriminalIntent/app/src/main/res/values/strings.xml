@@ -16,5 +16,7 @@
     <string name="crime_report_suspect">the suspect is %s.</string>
     <string name="crime_report_subject">CriminalIntent Crime Report</string>
     <string name="send_report">Send crime report via</string>
+    <string name="empty_message">Quite peaceful here ...</string>
+    <string name="add_a_crime">Add A Crime</string>
 
 </resources>

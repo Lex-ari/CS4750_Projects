@@ -46,6 +46,21 @@ class CrimeListFragment : Fragment() {
                             CrimeListFragmentDirections.showCrimeDetail(crimeId)
                         )
                     }
+                    binding.apply {
+                        if (crimes.isEmpty()){
+                            addACrime.visibility = View.VISIBLE
+                            addACrime.isEnabled = true
+                            emptyMessage.visibility = View.VISIBLE
+                        } else {
+                            addACrime.visibility = View.INVISIBLE
+                            addACrime.isEnabled = false
+                            emptyMessage.visibility = View.INVISIBLE
+                        }
+
+                        addACrime.setOnClickListener {
+                            showNewCrime()
+                        }
+                    }
                 }
             }
         }

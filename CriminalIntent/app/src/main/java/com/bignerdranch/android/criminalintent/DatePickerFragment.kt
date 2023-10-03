@@ -9,21 +9,23 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.navArgs
 import java.util.Calendar
-import java.util.GregorianCalendar
 
 class DatePickerFragment : DialogFragment() {
 
     private val args: DatePickerFragmentArgs by navArgs()
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        val calendar = Calendar.getInstance()
+        calendar.time = args.crimeDate
+
         val dateListener = DatePickerDialog.OnDateSetListener {
                 _: DatePicker, year: Int, month: Int, day: Int ->
-            val resultDate = GregorianCalendar(year, month, day).time
-            setFragmentResult(REQUEST_KEY_DATE, bundleOf(BUNDLE_KEY_DATE to resultDate))
+            calendar.set(Calendar.YEAR, year)
+            calendar.set(Calendar.MONTH, month)
+            calendar.set(Calendar.DAY_OF_MONTH, day)
+            setFragmentResult(REQUEST_KEY_DATE, bundleOf(BUNDLE_KEY_DATE to calendar.time))
 
         }
 
-        val calendar = Calendar.getInstance()
-        calendar.time = args.crimeDate
         val initialYear = calendar.get(Calendar.YEAR)
         val initialMonth = calendar.get(Calendar.MONTH)
         val initialDay = calendar.get(Calendar.DAY_OF_MONTH)
@@ -32,7 +34,7 @@ class DatePickerFragment : DialogFragment() {
             dateListener,
             initialYear,
             initialMonth,
-            initialDay
+            initialDay,
         )
     }
 

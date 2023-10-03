@@ -7,6 +7,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.text.format.DateFormat
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,7 +29,8 @@ import java.io.File
 import java.util.Date
 
 
-private const val DATE_FORMAT = "EEE, MM, dd"
+private const val DATE_FORMAT = "EEE, MMM dd, yyyy"
+private const val TIME_FORMAT = "HH:mm"
 class CrimeDetailFragment : Fragment() {
 
     private lateinit var crime: Crime
@@ -132,6 +134,14 @@ class CrimeDetailFragment : Fragment() {
                 bundle.getSerializable(DatePickerFragment.BUNDLE_KEY_DATE) as Date
             crimeDetailViewModel.updateCrime { it.copy(date = newDate)}
         }
+
+        setFragmentResultListener(
+            TimePickerFragment.REQUEST_KEY_TIME
+        ) { requestKey, bundle ->
+            val newDate =
+                bundle.getSerializable(TimePickerFragment.BUNDLE_KEY_TIME) as Date
+            crimeDetailViewModel.updateCrime { it.copy(date = newDate)}
+        }
     }
     override fun onDestroyView() {
         super.onDestroyView()
@@ -143,12 +153,21 @@ class CrimeDetailFragment : Fragment() {
             if (crimeTitle.text.toString() != crime.title) {
                 crimeTitle.setText(crime.title)
             }
-            crimeDate.text = crime.date.toString()
+            crimeDate.text = DateFormat.format(DATE_FORMAT, crime.date).toString()
+            Log.d("CRIMEDATE", crime.date.toString())
             crimeDate.setOnClickListener {
                 findNavController().navigate (
                     CrimeDetailFragmentDirections.selectDate(crime.date)
                 )
             }
+
+            crimeTime.text = DateFormat.format(TIME_FORMAT, crime.date).toString()
+            crimeTime.setOnClickListener {
+                findNavController().navigate (
+                    CrimeDetailFragmentDirections.selectTime(crime.date)
+                )
+            }
+
             crimeSolved.isChecked = crime.isSolved
 
             crimeReport.setOnClickListener {
