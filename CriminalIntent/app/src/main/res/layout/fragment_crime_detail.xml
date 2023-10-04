@@ -1,3 +1,9 @@
+<!--                                            -->
+<!--    Author: Alex Mariano        	        -->
+<!--    Dr. Dave Johannsen                      -->
+<!--    CS 4750 Mobile Application Development  -->
+<!--                                            -->
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"

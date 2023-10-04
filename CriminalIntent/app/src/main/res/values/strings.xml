@@ -1,3 +1,9 @@
+<!--                                            -->
+<!--    Author: Alex Mariano        	        -->
+<!--    Dr. Dave Johannsen                      -->
+<!--    CS 4750 Mobile Application Development  -->
+<!--                                            -->
+
 <resources>
     <string name="app_name">CriminalIntent</string>
     <string name="crime_title_hint">Enter a title for the crime.</string>
