@@ -37,7 +37,7 @@ import java.io.File
 import java.util.Date
 
 
-private const val DATE_FORMAT = "EEE, MMM dd, yyyy"
+private const val DATE_FORMAT = "EEEE, MMMM d, yyyy"
 private const val TIME_FORMAT = "HH:mm"
 class CrimeDetailFragment : Fragment() {
 

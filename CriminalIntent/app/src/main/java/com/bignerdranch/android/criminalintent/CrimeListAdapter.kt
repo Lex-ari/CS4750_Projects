@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bignerdranch.android.criminalintent.databinding.ListItemCrimeBinding
 import java.util.UUID
 
-private const val DATE_FORMAT = "EEE, MMM dd, yyyy"
+private const val DATE_FORMAT = "EEEE, MMMM d, yyyy"
 class CrimeHolder(
     private val binding: ListItemCrimeBinding
 ) : RecyclerView.ViewHolder(binding.root) {
