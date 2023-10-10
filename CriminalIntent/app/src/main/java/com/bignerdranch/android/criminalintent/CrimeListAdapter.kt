@@ -1,19 +1,28 @@
+/*
+
+    Author: Alex Mariano
+    Dr. Dave Johannsen
+    CS 4750 Mobile Application Development
+
+ */
+
 package com.bignerdranch.android.criminalintent
 
+import android.text.format.DateFormat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bignerdranch.android.criminalintent.databinding.ListItemCrimeBinding
 import java.util.UUID
 
+private const val DATE_FORMAT = "EEEE, MMMM d, yyyy"
 class CrimeHolder(
     private val binding: ListItemCrimeBinding
 ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(crime: Crime, onCrimeClicked: (crimeId: UUID) -> Unit) {
         binding.crimeTitle.text = crime.title
-        binding.crimeDate.text = crime.date.toString()
+        binding.crimeDate.text = DateFormat.format(DATE_FORMAT, crime.date).toString()
 
         binding.root.setOnClickListener {
             onCrimeClicked(crime.id)

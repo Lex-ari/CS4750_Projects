@@ -1,3 +1,11 @@
+/*
+
+    Author: Alex Mariano
+    Dr. Dave Johannsen
+    CS 4750 Mobile Application Development
+
+ */
+
 package com.bignerdranch.android.criminalintent
 
 import androidx.room.Entity
@@ -10,5 +18,7 @@ data class Crime(
     @PrimaryKey val id: UUID,
     val title: String,
     val date: Date,
-    val isSolved: Boolean
+    val isSolved: Boolean,
+    val suspect: String = "",
+    val photoFileName: String? = null
 )

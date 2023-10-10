@@ -1,15 +1,19 @@
-import android.util.Log
+/*
+
+    Author: Alex Mariano
+    Dr. Dave Johannsen
+    CS 4750 Mobile Application Development
+
+ */
+
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bignerdranch.android.criminalintent.Crime
 import com.bignerdranch.android.criminalintent.CrimeRepository
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import java.util.Date
-import java.util.UUID
 
 private const val TAG = "CrimeListViewModel"
 
@@ -26,6 +30,10 @@ class CrimeListViewModel : ViewModel() {
                 _crimes.value = it
             }
         }
+    }
+
+    suspend fun addCrime(crime: Crime) {
+        crimeRepository.addCrime(crime)
     }
 
 //    suspend fun loadCrimes(): List<Crime> {
