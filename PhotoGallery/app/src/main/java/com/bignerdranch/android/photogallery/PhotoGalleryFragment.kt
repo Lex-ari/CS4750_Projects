@@ -73,13 +73,11 @@ class PhotoGalleryFragment : Fragment() {
                     binding.photoGrid.adapter = PhotoListAdapter(
                         state.images
                     ) { photoPageUri ->
-                        val intent = Intent(Intent.ACTION_VIEW, photoPageUri)
-                        startActivity(intent)
-//                        findNavController().navigate(
-//                            PhotoGalleryFragmentDirections.showPhoto(
-//                                photoPageUri
-//                            )
-//                        )
+                        findNavController().navigate(
+                            PhotoGalleryFragmentDirections.showPhoto(
+                                photoPageUri
+                            )
+                        )
                     }
                     searchView?.setQuery(state.query, false)
                     updatePollingState(state.isPolling)
