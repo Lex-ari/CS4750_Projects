@@ -1,5 +1,6 @@
 package com.bignerdranch.android.photogallery
 
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -7,7 +8,8 @@ import com.bignerdranch.android.photogallery.api.GalleryItem
 import com.bignerdranch.android.photogallery.databinding.ListItemGalleryBinding
 
 class PhotoListAdapter(
-    private val galleryItems: List<GalleryItem>
+    private val galleryItems: List<GalleryItem>,
+    private val onItemClicked: (Uri) -> Unit
 ) : RecyclerView.Adapter<PhotoViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -18,7 +20,7 @@ class PhotoListAdapter(
     }
     override fun onBindViewHolder(holder: PhotoViewHolder, position: Int) {
         val item = galleryItems[position]
-        holder.bind(item)
+        holder.bind(item, onItemClicked)
     }
     override fun getItemCount() = galleryItems.size
 }
