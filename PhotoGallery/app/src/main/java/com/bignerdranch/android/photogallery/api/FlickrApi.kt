@@ -1,3 +1,11 @@
+/*
+
+    Author: Alex Mariano
+    Dr. Dave Johannsen
+    CS 4750 Mobile Application Development
+
+ */
+
 package com.bignerdranch.android.photogallery.api
 
 import retrofit2.http.GET
