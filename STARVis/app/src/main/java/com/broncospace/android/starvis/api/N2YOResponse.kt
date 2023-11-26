@@ -10,6 +10,6 @@ package com.broncospace.android.starvis.api
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class FlickrResponse(
-    val photos: PhotoResponse
+data class N2YOResponse(
+    val positions: List<PositionItem>
 )
