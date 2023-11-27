@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import com.broncospace.android.starvis.databinding.FragmentSatelliteGalleryBinding
@@ -31,12 +32,15 @@ class SatelliteGalleryFragment : Fragment() {
         return binding.root
     }
 
+    private val satelliteGalleryViewModel : SatelliteGalleryViewModel by viewModels()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         viewLifecycleOwner.lifecycleScope.launch {
-            val response = SatelliteRepository().fetchSatellites()
-            Log.d(TAG, "Response received: $response")
+            satelliteGalleryViewModel.galleryItems.collect { items ->
+                binding.photoGrid.adapter = SatelliteListAdapter(items)
+            }
         }
     }
     override fun onDestroyView() {
