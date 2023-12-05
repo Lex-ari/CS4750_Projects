@@ -1,9 +1,12 @@
 package com.broncospace.android.starvis.spacecraft
 
-import com.squareup.moshi.JsonClass
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import java.util.UUID
 
-@JsonClass(generateAdapter = true)
+@Entity
 data class SpacecraftItem(
-    val id: Integer,
-    val photo: String,
+    @PrimaryKey val id: UUID,
+    val noradId: Integer,
+    val photoLink: String,
 )

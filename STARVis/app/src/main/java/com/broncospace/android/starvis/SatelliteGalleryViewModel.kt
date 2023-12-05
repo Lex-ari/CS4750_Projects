@@ -4,8 +4,6 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.broncospace.android.starvis.api.PositionItem
-import com.broncospace.android.starvis.spacecraft.SpacecraftApi
-import com.broncospace.android.starvis.spacecraft.SpacecraftResponse
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

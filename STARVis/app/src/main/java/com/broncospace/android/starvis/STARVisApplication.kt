@@ -22,6 +22,7 @@ const val NOTIFICATION_CHANNEL_ID = "N2YO_poll"
 class STARVisApplication : Application() {
     override fun onCreate() {
         super.onCreate()
+        SatelliteRepository.initialize(this)
         //PreferencesRepository.initialize(this)
 
         //Check to see if android OREO or greater, then adds notification channel
