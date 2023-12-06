@@ -8,6 +8,6 @@ import java.util.UUID
 interface SpacecraftDao {
     @Query("SELECT * FROM SpacecraftItem")
     suspend fun getSpacecraft(): List<SpacecraftItem>
-    @Query("SELECT * FROM SpacecraftItem WHERE id=(:id)")
-    suspend fun getSpacecraft(id: UUID): SpacecraftItem
+    @Query("SELECT * FROM SpacecraftItem WHERE noradId=(:id)")
+    suspend fun getSpacecraft(id: Integer): SpacecraftItem
 }

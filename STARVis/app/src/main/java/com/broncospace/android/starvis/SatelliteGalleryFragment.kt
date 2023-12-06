@@ -1,7 +1,6 @@
 package com.broncospace.android.starvis
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +10,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import com.broncospace.android.starvis.databinding.FragmentSatelliteGalleryBinding
 import kotlinx.coroutines.launch
-import retrofit2.Retrofit
 
 private const val TAG = "SatelliteGalleryFragment"
 class SatelliteGalleryFragment : Fragment() {
@@ -39,7 +37,9 @@ class SatelliteGalleryFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             satelliteGalleryViewModel.galleryItems.collect { items ->
-                binding.photoGrid.adapter = SatelliteListAdapter(items)
+                binding.photoGrid.adapter = SatelliteListAdapter(items){noradId ->
+                    //ToDO
+                }
             }
         }
     }

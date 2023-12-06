@@ -12,15 +12,15 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 private const val API_KEY = "89PAUZ-9G5ZB6-49ZGHR-55XX"
-private const val satelliteId = 25544
+private const val noradId = 25544
 interface N2YOApi {
     @GET(
         "rest/v1/satellite/positions" +
-                "/$satelliteId" +
+                "/$noradId" +
                 "/" + "34.052571" + //Latitude
                 "/" + "-118.243907" + //Longitude
                 "/" + "0" + //Altitude
-                "/" + "2" + //Seconds Future
+                "/" + "10" + //Seconds Future
                 "&apiKey=$API_KEY"
     )
     suspend fun fetchSatellites(): N2YOResponse

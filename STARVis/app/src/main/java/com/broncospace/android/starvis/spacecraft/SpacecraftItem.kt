@@ -6,7 +6,8 @@ import java.util.UUID
 
 @Entity
 data class SpacecraftItem(
-    @PrimaryKey val id: UUID,
+    @PrimaryKey
     val noradId: Integer,
+    val name: String,
     val photoLink: String,
 )
